@@ -2,7 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css'
 import Home from './pages/Home'
 import Admin from './pages/Admin'
-import Customer from './pages/Customer'
+import Booking from './pages/Booking'
+import Tiket from './pages/Tiket'
 
 
 
@@ -14,7 +15,8 @@ function App () {
       <Routes>
           <Route path='/' element={<Home />}/>
           <Route path='/admin' element={<Admin />}/>
-          <Route path='/customer' element={<Customer />}/>
+          <Route path='/booking' element={<Booking />}/>
+          <Route path='/tiket' element={<Tiket />}/>
       </Routes>
     </Router>
     </>
