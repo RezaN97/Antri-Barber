@@ -8,26 +8,51 @@ const BookingForm = () => {
         layanan: "",
         tgl: "",
         nama: "",
-        hp: ""
+        hp: "",
+        time: ""
     })
 
+    const estimasiWaktu = {
+        dewasa: "30 menit",
+        anak: "20 menit",
+        kumis: "15 menit"
+    }
 
 
     const handleInput = (e) => {
         const {name, value} = e.target
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value
-        }))
+
+        if (name === "layanan") {
+            setFormData((prev)=> ({
+                ...prev,
+                layanan: value,
+                time: estimasiWaktu[value] || ""
+            }) )}
+            else {
+                setFormData((prev) => ({
+                ...prev,
+                [name]: value
+            }))}
+        
+     
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
         setIsSubmit(true);
-        console.log("Form Data Submitted: ", formData);
-        setFormData({     //Reset form data
+     
+           if(!formData.layanan || !formData.tgl || !formData.nama || !formData.hp ){ 
+            alert("Harap lengkapi semua field sebelum melanjutkan booking")
+            return
+        }
+     
+    }
+
+    const handleCancel = () => {
+        setIsSubmit(false)
+        setFormData({
             layanan: "",
-            tgl: "",
+            tgl:"",
             nama: "",
             hp: ""
         })
@@ -41,9 +66,10 @@ const BookingForm = () => {
         <form onSubmit={handleSubmit} className="w-full h-auto flex flex-col gap-2 p-3 ">
             <label className="font-bold" htmlFor="layanan">Pilih Layanan</label>
                 <select className="border p-2" value={formData.layanan} onChange={handleInput} name="layanan" id="layanan">
-                    <option value="Dewasa"> Dewasa</option>
-                    <option value="Anak-anak">Anak-anak</option>      
-                    <option value="Kumis/Jenggot">Kumis/Jenggot</option>      
+                    <option value=""> --Pilih Layanan--</option>
+                    <option value="dewasa"> Dewasa</option>
+                    <option value="anak">Anak-anak</option>      
+                    <option value="kumis">Kumis/Jenggot</option>      
                 </select>
             <label className="font-bold" htmlFor="date">Pilih Tanggal & Jam</label>
                 <input className="border p-2" value={formData.tgl} onChange={handleInput} type="date" name="tgl" id="tgl" />
@@ -55,7 +81,7 @@ const BookingForm = () => {
             <button className="border-2 w-80 self-center cursor-pointer p-2 font-semibold text-lg rounded-xl" type="submit">Konfirmasi Booking</button>
         </form>
     {/* Toggle Queueu Display */}
-        {isSubmit && <QueueDisplay queueData={formData}  onCancel={ () => setIsSubmit(false)}/>} 
+        {isSubmit && <QueueDisplay userData={formData} onCancel={handleCancel}/>} 
 
         
         </>
