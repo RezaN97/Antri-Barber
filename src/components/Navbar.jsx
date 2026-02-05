@@ -1,4 +1,5 @@
 import logo from "../assets/img/logo.png"
+import { NavLink } from "react-router-dom"
 
 const Navbar = () => {
     return (
@@ -9,13 +10,13 @@ const Navbar = () => {
             </div>
             <div className="w-100 h-20  rounded-bl-4xl bg-black text-white flex gap-6 justify-evenly items-center text-lg">
                 <div>
-                    <a href="#">Home</a>
+             <NavLink to="/" className="text-white hover:text-gray-300">Home</NavLink>
                 </div>
                 <div>
-                    <a href="#">Booking</a>
+                    <NavLink to="/dashboard" className="text-white hover:text-gray-300">Dashboard</NavLink>
                 </div>
                 <div>
-                    <a href="#">Login</a>
+                   <NavLink to="/login" className="text-white hover:text-gray-300">Login</NavLink>
                 </div>
 
             </div>

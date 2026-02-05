@@ -14,13 +14,13 @@ const Home = () => {
 
         <>
             {/* <Login/> */}
-            <Dashboard/>
-        {/* <Navbar/>
+            {/* <Dashboard/> */}
+        <Navbar/>
         <div className="flex flex-col gap-5">
             <BookingForm/>
 
         </div>
-            <Footer /> */}
+            <Footer />
         </>
     )
 }

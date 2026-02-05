@@ -1,6 +1,5 @@
 import QueueDisplay from "./QueueDisplay"
 import React, { useState } from "react"
-
 const BookingForm = () => {
 
     const [isSubmit, setIsSubmit] = useState(false)
