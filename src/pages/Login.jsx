@@ -1,6 +1,12 @@
+import { useState } from "react"
+import { Link } from "react-router-dom"
 const Login = () => {
 
-    // Masukan logic login disini
+    const [userid, setUserId] = useState("")
+    const [password, setPassword] = useState("")
+
+
+
     return (
         <>
         <div className="container w-full h-screen p-8 max-w-md mx-auto ">
@@ -15,8 +21,10 @@ const Login = () => {
                     <label htmlFor="password">Password:</label>
                     <input placeholder="Masukan Password anda" className="border rounded p-2" type="password" id="password" name="password" />
                     <button className="bg-blue-500 text-white rounded p-2 mt-5 cursor-pointer hover:bg-blue-600" type="submit">Login</button>
-                    <p className="my-2 text-center font-light">atau</p>
-                    <button className="bg-green-500 text-white rounded p-2 mt-5 cursor-pointer hover:bg-green-600" type="submit">Guest</button>
+                    <p className="mt-2 text-center font-light">atau</p>
+               <Link to="/" className="text-center bg-green-500 text-white rounded p-2 mt-5 cursor-pointer hover:bg-green-600">
+               Guest
+               </Link>   
                 </form>
             </div>
         </div>
