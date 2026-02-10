@@ -16,7 +16,7 @@ const Navbar = () => {
                     <NavLink to="/dashboard" className="text-white hover:text-gray-300">Dashboard</NavLink>
                 </div>
                 <div>
-                   <NavLink to="/login" className="text-white hover:text-gray-300">Logout</NavLink>
+                   <NavLink to="/" className="text-white hover:text-gray-300">Logout</NavLink>
                 </div>
 
             </div>
