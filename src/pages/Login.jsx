@@ -1,9 +1,9 @@
-import { useState } from "react"
+// import { useState } from "react"
 import { Link } from "react-router-dom"
 const Login = () => {
 
-    const [userid, setUserId] = useState("")
-    const [password, setPassword] = useState("")
+    // const [userid, setUserId] = useState("")
+    // const [password, setPassword] = useState("")
 
 
 
@@ -22,7 +22,7 @@ const Login = () => {
                     <input placeholder="Masukan Password anda" className="border rounded p-2" type="password" id="password" name="password" />
                     <button className="bg-blue-500 text-white rounded p-2 mt-5 cursor-pointer hover:bg-blue-600" type="submit">Login</button>
                     <p className="mt-2 text-center font-light">atau</p>
-               <Link to="/" className="text-center bg-green-500 text-white rounded p-2 mt-5 cursor-pointer hover:bg-green-600">
+               <Link to="/booking" className="text-center bg-green-500 text-white rounded p-2 mt-5 cursor-pointer hover:bg-green-600">
                Guest
                </Link>   
                 </form>

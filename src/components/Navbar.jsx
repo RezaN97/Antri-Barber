@@ -10,13 +10,13 @@ const Navbar = () => {
             </div>
             <div className="w-100 h-20  rounded-bl-4xl bg-black text-white flex gap-6 justify-evenly items-center text-lg">
                 <div>
-             <NavLink to="/" className="text-white hover:text-gray-300">Home</NavLink>
+             <NavLink to="/contact" className="text-white hover:text-gray-300">Contact</NavLink>
                 </div>
                 <div>
                     <NavLink to="/dashboard" className="text-white hover:text-gray-300">Dashboard</NavLink>
                 </div>
                 <div>
-                   <NavLink to="/login" className="text-white hover:text-gray-300">Login</NavLink>
+                   <NavLink to="/login" className="text-white hover:text-gray-300">Logout</NavLink>
                 </div>
 
             </div>
