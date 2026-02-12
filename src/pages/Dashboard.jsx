@@ -1,8 +1,39 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import TableAntrian from "../components/TableAntrian";
+import Analytics from "../components/Analytics";
+import ScanQR from "../components/ScanQR";
+import { useState } from "react";
+
 const Dashboard = () => {
+
+    const [showAnalytics, setShowAnalytics] = useState(false)
+    const [showTable, setShowTable] = useState(false)
+    const [showScanQR, setShowScanQR] = useState(false)
+    const [showQRFirst, setShowQRFirst] = useState(true)
+
+    const handleBtnAnalytics = () => {
+        setShowAnalytics(true)
+        setShowTable(false)
+        setShowScanQR(false)
+        setShowQRFirst(false)
+    }
+
+    const handleBtnTable = () => {
+        setShowTable(true)
+        setShowAnalytics(false)
+        setShowScanQR(false)
+         setShowQRFirst(false)
+    }
+
+    const handleBtnScanQR = () => {
+        setShowScanQR(true)
+        setShowAnalytics(false)
+        setShowTable(false)
+        setShowQRFirst(false)
+    }
     return (
+
         <>
         <div className="h-full w-full flex flex-col justify-between">
             <Navbar/>
@@ -14,32 +45,23 @@ const Dashboard = () => {
                 </div>
             </div>
             {/* content */}
-            <div className=" overflow-x-hidden flex w-full h-screen">
+            <div className=" flex w-full h-screen">
                 <div id="leftMenu" className="bg-black w-35 h-auto gap-5 flex-col flex  ">
-                    <button className="bg-red-500 p-5  text-white uppercase  hover:bg-red-600 cursor-pointer font-bold ">Scan QR</button>
-                    <button className="bg-black p-5  text-white   hover:bg-slate-600 cursor-pointer font-bold ">Schedule</button>
-                    <button className="bg-black p-5  text-white   hover:bg-slate-600 cursor-pointer font-bold ">Barbers</button>
-                    <button className="bg-black p-5  text-white   hover:bg-slate-600 cursor-pointer font-bold ">Analytics</button>
-                    <button className="bg-black p-5  text-white   hover:bg-slate-600 cursor-pointer font-bold ">Setting</button>
+                    <button onClick={handleBtnScanQR} className="bg-red-500 p-5  text-white uppercase  hover:bg-red-600 cursor-pointer font-bold ">Scan QR</button>
+                    <button onClick={handleBtnTable} className="bg-black p-5  text-white   hover:bg-red-600 cursor-pointer font-bold ">Schedule</button>
+                    <button className="bg-black p-5  text-white   hover:bg-red-600 cursor-pointer font-bold ">Barbers</button>
+                    <button onClick={handleBtnAnalytics} className="bg-black p-5  text-white   hover:bg-red-600 cursor-pointer font-bold ">Analytics</button>
+                    <button className="bg-black p-5  text-white   hover:bg-red-600 cursor-pointer font-bold ">Setting</button>
                 </div>
-                <div id="rightMenu" className="  overflow-y-scroll p-1">
-                    <h1 className="text-center uppercase ml-4 text-lg text-slate-700 " >Laporan Customer</h1>
-                    <div className="p-3 flex flex-col items-center gap-2 w-full mt-3">
-                        <div className=" w-65 h-20 font-bold flex flex-col rounded-lg justify-center items-center shadow-xl">
-                            <h3 className="underline">Total Customer</h3>
-                            <h3 className="text-2xl">10</h3>
-                        </div>
-                        <div className=" w-65 h-20 font-bold flex flex-col rounded-lg justify-center items-center shadow-xl">
-                            <h3 className="underline">Menunggu</h3>
-                                <h3 className="text-2xl">5</h3>
-                        </div>
-                        <div className="w-65 h-20 font-bold flex flex-col rounded-lg justify-center items-center shadow-xl">
-                            <h3 className="underline">Proses Cukur</h3>
-                                <h3 className="text-2xl">2</h3>
-                        </div>
-                    </div>
-{/* antrian */}
-                    <TableAntrian/>
+
+
+            {/* SHow Data Right Side of Dashboard*/}
+                <div id="rightMenu" className="w-full  p-1">
+
+                        {showQRFirst && <ScanQR/>}
+                        {showTable && <TableAntrian/>}
+                        {showAnalytics && <Analytics/>}
+                        {showScanQR && <ScanQR/>} 
                 </div>
             </div>
             <Footer/>

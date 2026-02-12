@@ -4,7 +4,7 @@ import Footer from "../components/Footer"
 const Booking = () => {
     return (
         <>
-        <div className="flex flex-col w-full h-auto container ">
+        <div className="flex flex-col w-full h-auto  ">
             <Navbar/>
             <BookingForm/>
             <Footer/>
